@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WebGIS Terumbu Karang | TN Kepulauan Seribu</title>
+
+<meta name="description" content="WebGIS Terumbu Karang Kepulauan Seribu berbasis SIG dan penginderaan jauh">
+<meta name="author" content="Ardiansyah">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* ===== BACKGROUND ===== */
+.slider {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideShow 36s infinite;
+}
+
+.slide:nth-child(1){ background-image:url('img/slide1.jpg'); animation-delay:0s;}
+.slide:nth-child(2){ background-image:url('img/slide2.jpg'); animation-delay:6s;}
+.slide:nth-child(3){ background-image:url('img/slide3.jpg'); animation-delay:12s;}
+.slide:nth-child(4){ background-image:url('img/slide4.jpg'); animation-delay:18s;}
+.slide:nth-child(5){ background-image:url('img/slide5.jpg'); animation-delay:24s;}
+.slide:nth-child(6){ background-image:url('img/slide6.jpg'); animation-delay:30s;}
+
+@keyframes slideShow {
+    0%{opacity:0;}
+    8%{opacity:1;}
+    25%{opacity:1;}
+    33%{opacity:0;}
+    100%{opacity:0;}
+}
+
+/* overlay gradient */
+.overlay-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(0,0,0,0.7), rgba(0,77,64,0.6));
+    z-index: -1;
+}
+
+/* ===== CONTENT ===== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.content {
+    text-align: center;
+    color: #fff;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    animation: fadeUp 1.2s ease;
+}
+
+/* logo */
+.content img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+/* text */
+.content h1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.content h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.content p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* ===== BUTTON GROUP ===== */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* tombol utama */
+.btn-primary {
+    padding: 14px 40px;
+    margin: 8px;
+    font-weight: 600;
+    border-radius: 40px;
+    text-decoration: none;
+    color: #00332f;
+    background: linear-gradient(135deg, #00e5ff, #1de9b6);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+/* tombol sekunder */
+.btn-secondary {
+    padding: 12px 28px;
+    margin: 8px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* footer */
+.footer {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* animasi */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* mobile */
+@media(max-width:768px){
+    .content h1 {font-size:28px;}
+    .content h2 {font-size:16px;}
+    .btn-group a {width:100%;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- background -->
+<div class="slider">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+</div>
+
+<div class="overlay-bg"></div>
+
+<!-- content -->
+<div class="container">
+    <div class="content">
+
+        <img src="img/logo.png">
+
+        <h1>WebGIS Terumbu Karang</h1>
+        <h2>Taman Nasional Kepulauan Seribu</h2>
+
+        <p>
+          Peta interaktif yang menyajikan informasi sebaran terumbu karang dan Analisis clustering di kawasan Taman Nasional Kepulauan Seribu berbasis data penginderaan jauh dan Sistem Informasi Geografis (SIG).
+        </p>
+
+        <div class="btn-group">
+
+            <a href="peta.html" class="btn-primary">🌐 Lihat Peta</a>
+
+            <a href="https://drive.google.com/drive/folders/1IMeb47gAWzKT9OI7YOHuaqtq_lPa_GUz?usp=sharing" target="_blank" class="btn-secondary">📚 Materi</a>
+
+            <a href="https://drive.google.com/drive/folders/1Nh2E7kxJv42f1fvqHY_EdKkPR_rdy4Sl?usp=sharing" target="_blank" class="btn-secondary">📄 Peta PDF</a>
+
+			<a href="#" onclick="loginSHP()" class="btn-secondary">🗺️ Data SHP</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    © 2026 | WebGIS Terumbu Karang – Kepulauan Seribu
+</div>
+<script>
+function loginSHP() {
+
+    let user = prompt("Masukkan Username:");
+    let pass = prompt("Masukkan Password:");
+
+    if (user === "adminTNKS" && pass === "coral2026") {
+        alert("Login berhasil!");
+        window.open("https://drive.google.com/drive/folders/1UqycpRYcuRuFiJIKtvIR5-1m7ARig6tK?usp=sharing", "_blank");
+    } else {
+        alert("Username atau Password salah!");
+    }
+}
+</script>
+</body>
+</html>
